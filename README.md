@@ -1,9 +1,6 @@
-# dll_demo
-关于dll打包优化你可能不知道的地方
+**使用DllPlugin可以很大程度提高webpack的构建速度，但是有几点不注意的话会使得打包的体积较大。**
 
-使用DllPlugin可以很大程度提高webpack的构建速度，但是有几点不注意的话会使得打包的体积较大。
-
-以下以react的配置来说明一下
+**以下以react的配置来说明一下（webpack3）**
 
 ## 一、先看一下最简单的打包
 
@@ -48,6 +45,9 @@ module.exports = {
 
 
 ```
+
+![clipboard.png](https://www.maocanhua.cn/images/upload/153640999630543.png)
+
 **可以发现，仅仅是 'react', 'react-dom', 'react-router'  这三个就有三百多k，是不是太大了一点！！！**
 
 ## 二、使用生产模式构建
@@ -65,6 +65,8 @@ module.exports = {
 ]
 
 ```
+![clipboard.png](https://www.maocanhua.cn/images/upload/153641001398760.png)
+
 
 **重新打包，可以发现，打包的体积一下子降到了 143 kB **
 
@@ -82,6 +84,9 @@ module.exports = {
 
 
 ```
+
+
+![clipboard.png](https://www.maocanhua.cn/images/upload/153641002670162.png)
 
 **重新打包， 发现打包的体积为 123 kB ，减少了20k。**
 **关于dll打包中，使用声明 production 和 使用 alias 处理路径 可以大幅减少包的体积。**
@@ -170,16 +175,7 @@ plugins: [
 ```
 
 **end.**
-
-
-
-
-
-
-
-
-
-
+[demo地址](https://github.com/m-Ryan/dll_demo)
 
 
 
